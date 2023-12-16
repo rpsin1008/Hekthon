@@ -25,3 +25,15 @@ body {
         font-size: 12px;
     }
 }
+
+.accordion-header {
+    button {
+        &:focus,
+        &:active,
+        &:hover {
+            outline: none;
+            border: none;
+            box-shadow: none;
+        }
+    }
+}

@@ -13,12 +13,16 @@ export class AppComponent {
   }
   
   title = 'createChecklistFormMobile';
-  time = { hour: 13, minute: 30 };
+  firstStarttime = { hour: 12, minute: 0 };
+  lastStarttime = { hour: 12, minute: 0 };
   standalone = true;
 	meridian = true;
   typeOfSchudule: Array<string> | undefined;
-  model   = {option: 'option1'};
+  model   = {option: 'noRecurrence'};
 
+noRecurrence: boolean = true;
+hourly : boolean = false;
+daily: boolean = false;
   
   brand = [
     {id: 1, name: 'ABC'},
@@ -50,6 +54,20 @@ initializeForm() {
 
   
 changeSchuduleType(getSchuduleTye: any) {
-    
+    if(getSchuduleTye==="No Recurrence"){
+      this.noRecurrence = true;
+      this.hourly = false;
+      this.daily = false;
+    }
+    else if(getSchuduleTye==="Hourly"){
+      this.hourly = true;
+      this.noRecurrence = false;
+      this.daily = false;
+    }
+    else if(getSchuduleTye==="Daily"){
+      this.daily = true;
+      this.hourly = false;
+      this.noRecurrence = false;
+    }
 }
 }
